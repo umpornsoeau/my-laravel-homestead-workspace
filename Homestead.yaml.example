@@ -23,9 +23,8 @@ databases:
     - homestead
 
 features:
-    - mysql8: true
     - mariadb: false
-    - ohmyzsh: false
+    - ohmyzsh: true
     - webdriver: false
 
 # ports:
