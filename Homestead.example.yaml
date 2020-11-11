@@ -1,0 +1,50 @@
+---
+ip: "192.168.10.10"
+memory: 4096
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: C:\Users\princess\homestead\code
+      to: /home/vagrant/code
+
+sites:
+    - map: homestead.test
+      to: /home/vagrant/code/public
+    - map: namesome.test
+      to: /home/vagrant/name-some-backend-php/public
+
+databases:
+    - homestead
+
+features:
+    - mysql8: true
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
+
+services:
+    - enabled:
+        - "mysql"
+    - disabled:
+        - "postgresql@12-main"
+
+variables:
+    - key: DATABASE_URL
+      value: mysql://UMPugaazcfzkqyjp0tm:UMPbKKkqhvEAZhxHLAuxJIH@UMPbde9p3eewpexuvrpgwq4-mysql.services.clever-cloud.com:3306/UMPbde9p3eewpexuvrpgwq4
+    - key: APP_ENV
+      value: dev
+
+
